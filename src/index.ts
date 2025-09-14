@@ -27,17 +27,6 @@ app.use(express.json());
 
 app.use(express.urlencoded({ extended: true }));
 
-// app.use(
-  // session({
-    // name: "session",
-    // keys: [config.SESSION_SECRET],
-    // maxAge: 24 * 60 * 60 * 1000,
-    // secure: true, // must be true in production (HTTPS)
-    // httpOnly: true,
-    // sameSite: "none", // allow cross-site cookies
-  // })
-// );
-
 app.use(
   session({
     name: "session",
@@ -45,7 +34,7 @@ app.use(
     maxAge: 24 * 60 * 60 * 1000,
     secure: config.NODE_ENV === "production",
     httpOnly: true,
-    sameSite: "lax",
+    sameSite: "none",
   })
 );
 
